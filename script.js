@@ -58,6 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+            function showFormError() {
+                const contactSection = document.querySelector('.contact');
+                if (contactSection) {
+                    contactSection.classList.add('error');
+                    setTimeout(() => contactSection.classList.remove('error'), 500);
+                }
+            }
+
             try {
                 const response = await fetch(DISCORD_WEBHOOK_URL, {
                     method: 'POST',
@@ -78,4 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Fade-in effect for each section on scroll
+    const sections = document.querySelectorAll('section');
+    sections.forEach(sec => sec.classList.add('fade-in'));
+    const revealOnScroll = () => {
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                sec.classList.add('visible');
+            }
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 });
