@@ -1,26 +1,18 @@
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
-
-    const webhookURL = "https://discord.com/api/webhooks/1403579005885481110/UKnIprx4nloEb-OqRTdXyFE007L8PGzLfQ9f38Z1jHnT-6DwCAxf3xdPRgttqN4NH2Zi"; // ใส่ Webhook ของ Boatty
-
+    
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
 
-    const payload = {
-        content: `📩 **New Contact Form Submission**
-**Name:** ${name}
-**Email:** ${email}
-**Message:** ${message}`
-    };
-
-    fetch(webhookURL, {
+    fetch('/api/contact', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ name, email, message })
     })
-    .then(response => {
-        if (response.ok) {
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
             document.getElementById("statusMsg").textContent = "✅ Message sent to Discord!";
             document.getElementById("contactForm").reset();
         } else {
