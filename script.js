@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const statusMsg = document.getElementById('statusMsg');
     if (contactForm) {
+        // เพิ่มฟีเจอร์ Enter เพื่อส่งฟอร์ม
+        contactForm.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && (e.target.tagName === 'INPUT' || (e.target.tagName === 'TEXTAREA' && !e.shiftKey))) {
+                e.preventDefault();
+                contactForm.requestSubmit();
+            }
+        });
+
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
