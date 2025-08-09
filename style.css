@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+:root {
+    --primary: #a020f0; /* ม่วงหลัก */
+    --primary-light: #bb77ff; /* ม่วงสว่าง */
+    --bg-dark: #0a0a0a;
+    --text-light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    border-bottom: 1px solid var(--primary);
+}
+.logo {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(90deg, #2b0055, var(--bg-dark));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 3rem;
+}
+.hero h1 span {
+    color: var(--primary);
+}
+.hero p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+}
+.btn:hover {
+    transform: scale(1.05);
+    background: var(--primary-light);
+}
+
+/* Sections */
+section {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+/* Skills */
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+.skill-card {
+    background: #111;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--primary);
+    transition: transform 0.3s, border-color 0.3s;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-light);
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.project-card {
+    background: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card img {
+    width: 100%;
+    display: block;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--primary-light);
+}
+.project-card h3 {
+    padding: 1rem;
+    color: var(--primary);
+}
+.project-card p {
+    padding: 0 1rem 1rem;
+}
+
+/* Contact */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact input, .contact textarea {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #222;
+    color: #fff;
+}
+.contact button {
+    background: var(--primary);
+    border: none;
+    padding: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.contact button:hover {
+    background: var(--primary-light);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+    color: #aaa;
+}

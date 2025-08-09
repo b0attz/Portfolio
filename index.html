@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOATTY Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Portfolio BOATTY🎶</div>
+        <ul class="nav-links">
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#about">เกี่ยวกับ</a></li>
+            <li><a href="#skills">สกิล</a></li>
+            <li><a href="#projects">ผลงาน</a></li>
+            <li><a href="#contact">ติดต่อ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm <span>BOATTY</span></h1>
+        <p>Roblox Game Developer | UI Designer | Programmer</p>
+        <a href="#projects" class="btn">ดูผลงาน</a>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <h2>เกี่ยวกับเรา</h2>
+        <p>
+            สวัสดี! เราคือ Boatty นักพัฒนาเกม Roblox ที่ชอบสร้างเกมแนว Tower Defense
+            ทำ UI แบบคุมเองทั้งหมด กำลังฝึกฝนทักษะด้าน coding
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+        <h2>สกิลของเรา</h2>
+        <div class="skill-list">
+            <div class="skill-card">UI/UX Design</div>
+            <div class="skill-card">HTML/CSS</div>
+            <div class="skill-card">JavaScript</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <h2>ผลงาน</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://tr.rbxcdn.com/180DAY-eb874d84e99d62c10318321b36848f41/768/432/Image/Webp/noFilter" alt="Project 1">
+                <h3>-</h3>
+                <p>-</p>
+            </div>
+            <div class="project-card">
+                <img src="https://tr.rbxcdn.com/180DAY-eb874d84e99d62c10318321b36848f41/768/432/Image/Webp/noFilter" alt="Project 2">
+                <h3>-</h3>
+                <p>-</p>
+            </div>
+            <div class="project-card">
+                <img src="https://tr.rbxcdn.com/180DAY-eb874d84e99d62c10318321b36848f41/768/432/Image/Webp/noFilter" alt="Project 3">
+                <h3>-</h3>
+                <p>-</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+    <h2>ติดต่อ</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="ชื่อของคุณ" required>
+        <input type="email" id="email" placeholder="อีเมล์ของคุณ" required>
+        <textarea id="message" placeholder="ข้อความ" rows="5" required></textarea>
+        <button type="submit">Send to Discord</button>
+    </form>
+        <p id="statusMsg"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 BOATTY Portfolio | สร้างด้วย ❤️ และโค้ด</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
