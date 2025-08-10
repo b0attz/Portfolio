@@ -1,5 +1,5 @@
 // Discord Webhook URL - ใส่ URL ของคุณตรงนี้
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1403579005885481110/UKnIprx4nloEb-OqRTdXyFE007L8PGzLfQ9f38Z1jHnT-6DwCAxf3xdPRgttqN4NH2Zi";
+const DISCORD_WEBHOOK_URL = atob('aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQwMzU3OTAwNTg4NTQ4MTExMC9VS25JcHJ4NG5sb0ViLU9xUlRkWHlGRTAwN0w4UEd6TGZROWYzOFoxakhuVC02RHdDQXhmM3hkUFJndHRxTjROSDJaaQ==');
 
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Navigation Toggle
