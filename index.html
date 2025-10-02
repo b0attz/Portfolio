@@ -64,9 +64,9 @@
         <h2>PROJECTS</h2>
         <div class="project-grid">
             <div class="project-card">
-                <img src="ImageFolder/c2.jpg" alt="Project 1">
-                <h3>-</h3>
-                <p>-</p>
+                <img src="ImageFolder/portfolio/NAS.png" alt="NAS">
+                <h3>ผ่านการอบรมออนไลน์ค่ายดาราศาสตร์</h3>
+                <p>TEST</p>
             </div>
             <div class="project-card">
                 <img src="ImageFolder/c2.jpg" alt="Project 2">
@@ -99,9 +99,18 @@
     </section>
      
     <footer>
-        <p>© 2025 B0attz Portfolio | สร้างด้วย BOAT และโค้ด</p>
+        <p>© 2025 B0attz Portfolio | Made By AI and B0attz</p>
     </footer>
-     
+    <!-- Lightbox modal for project images -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-overlay" id="lightboxOverlay" tabindex="-1"></div>
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Project image" tabindex="-1">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+            <img id="lightboxImg" src="" alt="Full project image">
+            <h3 id="lightboxTitle"></h3>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -106,3 +106,89 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 });
+
+// Lightbox / project image modal
+(() => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    let lastFocused = null;
+
+    if (!lightbox || !lightboxImg) return;
+
+    function openLightbox(src, title, alt, triggerEl) {
+        lastFocused = triggerEl || document.activeElement;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || title || 'Project image';
+        lightboxTitle.textContent = title || '';
+        // show modal and lock background scroll
+        document.body.classList.add('no-scroll');
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        // wait until image has rendered before focusing close button
+        const tryFocusClose = () => {
+            if (lightboxClose) lightboxClose.focus();
+        };
+        if (lightboxImg.complete) tryFocusClose();
+        else lightboxImg.onload = tryFocusClose;
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+        lightboxTitle.textContent = '';
+        document.body.classList.remove('no-scroll');
+        // return focus
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    // Open when clicking a project card
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            // find image inside the card
+            const img = card.querySelector('img');
+            const titleEl = card.querySelector('h3');
+            if (!img) return;
+            openLightbox(img.src, titleEl?.textContent?.trim() || '', img.alt || '', card);
+        });
+    });
+
+    // Close handlers (only attach if elements exist)
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+    // Keyboard handling: Escape to close, Tab trap inside modal when open
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+            e.preventDefault();
+            closeLightbox();
+            return;
+        }
+
+        if (e.key === 'Tab' && lightbox.classList.contains('open')) {
+            // Simple focus trap: keep focus within the close button and the content
+            const focusable = [];
+            if (lightboxClose) focusable.push(lightboxClose);
+            if (lightboxImg) focusable.push(lightboxImg);
+            // default to cycling between available focusable elements
+            if (focusable.length === 0) return;
+
+            const current = document.activeElement;
+            const idx = focusable.indexOf(current);
+            if (e.shiftKey) {
+                // shift+tab
+                const next = idx > 0 ? focusable[idx - 1] : focusable[focusable.length - 1];
+                e.preventDefault();
+                next.focus();
+            } else {
+                // tab
+                const next = idx >= 0 && idx < focusable.length - 1 ? focusable[idx + 1] : focusable[0];
+                e.preventDefault();
+                next.focus();
+            }
+        }
+    });
+})();
